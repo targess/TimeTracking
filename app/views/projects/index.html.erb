@@ -1,0 +1,15 @@
+<h1>Last Projects</h1>
+
+<ul>
+	<% @projects.each do |project| %>
+		<li><%= project.name %> <%= "- "+project.description if project.description %></li>
+	<% end %>
+</ul>
+
+<% @projects.each do |project| %>
+	<h3>Project</h3>
+	<p><strong>Title: </strong><%= project.name %></p>
+	<% if project.description %>
+		<p><strong>Description: </strong><%= project.description %></p>
+	<% end %>
+<% end %>
