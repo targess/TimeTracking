@@ -1,0 +1,8 @@
+<%= link_to 'Home of projects','/projects' %>
+
+<h1>Project info</h1>
+
+<p><strong><%= @project.name %></strong></p>
+<% if @project.description.present? %>
+	<p><%= @project.description %></p>
+<% end %>
