@@ -1,0 +1,11 @@
+<h1>Time Tracking tool</h1>
+
+<h2><%= @project.name %></h2>
+<ul>
+	<% @entries.each do |entry| %>
+		<li><%= entry.hours %> h <%= entry.minutes %> m - <%= entry.date %></li>
+	<% end %>
+</ul>
+
+<%= link_to "Back to Projects", '/projects' %>
+<%= link_to "New entry", "/projects/#{@project.id}/time_entries/new" %>
