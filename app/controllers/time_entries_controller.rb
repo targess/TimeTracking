@@ -1,8 +1,8 @@
 class TimeEntriesController < ApplicationController
 	def index
-		@project = Project.find(params[:project_id])
+		@my_project = Project.find(params[:project_id])
 		# @entries = @project.time_entries.where('date > ?', 1.month.ago.end_of_month)
-		@entries = @project.time_entries.all
+		@my_entries = @my_project.time_entries.all
 	end
 
 	def new
@@ -12,10 +12,6 @@ class TimeEntriesController < ApplicationController
 
 	def create
 		@my_project = Project.find(params[:project_id])
-		# @my_entry = @my_project.time_entries.new(
-		# 	hours: params[:time_entry][:hours],
-		# 	minutes: params[:time_entry][:minutes],
-		# 	date: params[:time_entry][:date])
 		@my_entry = @my_project.time_entries.new(entry_params)
 
 		if @my_entry.save
@@ -39,6 +35,13 @@ class TimeEntriesController < ApplicationController
 		else
 			render "edit"
 		end
+	end
+
+	def destroy
+		@my_project = Project.find(params[:project_id])
+		@my_project.time_entries.find_by_id(params[:id]).destroy
+
+		redirect_to action: :index, project_id: @my_project.id
 	end
 
 	private

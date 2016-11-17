@@ -18,4 +18,5 @@ Rails.application.routes.draw do
 
   get '/projects/:project_id/time_entries/:id/edit', to: 'time_entries#edit', as: :project_time_entry_edit
   patch '/projects/:project_id/time_entries/:id', to: 'time_entries#update', as: :project_time_entry
+  delete '/projects/:project_id/time_entries/:id', to: 'time_entries#destroy'
 end
