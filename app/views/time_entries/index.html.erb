@@ -3,7 +3,11 @@
 <h2><%= @project.name %></h2>
 <ul>
 	<% @entries.each do |entry| %>
-		<li><%= entry.hours %> h <%= entry.minutes %> m - <%= entry.date %></li>
+		<li>
+			<%= entry.hours %> h <%= entry.minutes %> m - <%= entry.date %>
+			<!-- <%= link_to 'Edit', "/projects/#{@project.id}/time_entries/#{entry.id}/edit" %> -->
+			<%= link_to 'Edit', project_time_entry_edit_path(@project, entry) %>
+		</li>
 	<% end %>
 </ul>
 
