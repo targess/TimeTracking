@@ -6,7 +6,7 @@
 		<li>
 			<%= entry.hours %> h <%= entry.minutes %> m - <%= entry.date %>
 			<!-- <%= link_to 'Edit', "/projects/#{@my_project.id}/time_entries/#{entry.id}/edit" %> -->
-			<%= link_to 'Edit', project_time_entry_edit_path(@my_project, entry) %>
+			<%= link_to 'Edit', edit_project_time_entry_path(@my_project, entry) %>
 			<%= link_to('Delete', project_time_entry_path(@my_project, entry),
 				method: :delete, data: { confirm: 'Are you sure?'})  %>
 		</li>
